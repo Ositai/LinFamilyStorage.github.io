@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>庫存查詢</title>
+
+    <!-- 連接boootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- 載入共用部分，靜態部署用 -->
+    <link rel="stylesheet" href="https://ositai.github.io/LinFamilyStorage.github.io/LinFamiStorage/common.css">
+    <script src="https://ositai.github.io/LinFamilyStorage.github.io/LinFamiStorage/common.js" defer></script>
+
+    <script>
+      // 搜尋產生表格
+      // 避免表單空白
+      function noBlank(){
+        document.querySelector('form')
+          .addEventListener('submit',evt => {
+            event.preventDefault()
+          })      
+        return undefined
+      }
+      window.addEventListener("load",noBlank,true)
+
+      // 顯示搜尋結果表格
+      function displayResult(dataArray){
+        console.log(dataArray)
+        if (dataArray && dataArray!==undefined && dataArray.length !=0){
+          
+          // 如果有結果，定義顯示格式
+          let headerHome = "<table class='table-custom' id='dtable' style='font-size: 20px;'>"+
+            "<thead style='white-space: nowrap;'>"+"<tr>"+
+            // headers
+            `${tableHeader}`+"</tr></thead>";
+
+          // 迴圈顯示表格元素
+          let tableBody = ''
+          dataArray.forEach(arr => {
+            let tableRowBody = arr.data
+              .map(dat =>
+                `<td>${dat}</td>`
+              ).join()
+            tableBody += `<tr>${tableRowBody}</tr>`
+          })
+
+          let result = `${headerHome}${tableBody}</table>`
+
+          let div = document.getElementById('search-results')
+          div.innerHTML = result
+        } else{
+          let div = document.getElementById('search-results')
+          div.innerHTML = '查無此庫存'
+        }
+        // 重置搜尋欄
+        document.getElementById('search-form').reset()
+        return undefined
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <!-- 標題 -->
+    <div class="container-contact">
+    <h2 style="text-align: center;">LinFamiStorage</h2>
+    <h3 style="text-align: center">Home</h3>
+
+        <!-- 查詢模組 -->
+    <div class="row">
+        <form id="search-form" class="form-inline" onsubmit="formSender(this);">
+          <input style="max-width: 60%; width: 50%; border-radius: 10px;" type="text" id="searchtext" name="searchtext" placeholder="請輸入搜尋對象">
+          <button type="submit" class="btn" style="max-width: 30%;">🔍搜尋</button>
+        </form>
+    </div>
+    <br>
+    <!-- 查詢結果表格在此 -->
+    <div class="row">
+        <div id="search-results" class="my-table-wrapper table-reponsive">  
+        </div>
+    </div>
+
+    <!-- 按按鈕進入添加庫存 -->
+    <button type="button" class="btn2" onclick="linkToAdd('input')"
+    style="min-width:280px; width: 50%; min-height: 100px; font-size: 30px;">➕添加庫存、進貨
+    </button>
+     
+    <!-- 按按鈕進入消耗庫存 -->
+    <button type="button" class="btn3" onclick="linkToAdd('consume')"
+    style="min-width:280px; width: 50%; min-height: 100px; font-size: 30px;">📤消耗庫存</button>    
+  </body>
+</html>
