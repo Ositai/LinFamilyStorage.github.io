@@ -221,7 +221,11 @@
         });
 
         // 關閉二次確認對話框
-        $('#confirmationModal').modal('hide')
+        bootstrap.Modal
+          .getInstance(document
+            .getElementById('confirmationModal')
+          )
+        .hide()
         return undefined
       }
     </script>
@@ -448,6 +452,7 @@
 </body>
 
 </html>
+
 
 
 
