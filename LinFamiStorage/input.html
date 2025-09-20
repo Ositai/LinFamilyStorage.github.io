@@ -81,8 +81,8 @@
         [numberMin,'庫存下限'],[buyDay,'購買日期'],[expireDay,'過期日期'],[leftDay,'保存時長']]
 
         let inputData = dataArr
-          .map((prop,titles) =>
-            `${titles} : ${prop}`
+          .map(data =>
+            `${data[1]} : ${data[0]}`
           )
           .join('\n')
 
@@ -96,7 +96,6 @@
       // 顯示搜尋結果表格
       function displayResult(dataArray){
         
-
         if (dataArray && dataArray!==undefined && dataArray.length !=0){
           
           // 如果有結果，定義顯示格式
@@ -449,4 +448,5 @@
 </body>
 
 </html>
+
 
