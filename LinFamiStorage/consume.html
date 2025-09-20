@@ -97,11 +97,11 @@
           let numId = 'numConsume'+(i)
           let consumeNums = document.getElementById(numId).value
           if (consumeNums!=0){
-            confirmArr.push([table.rows[i+1].cells[0].textContent,consumeNums])
+            confirmArr.push({objName: table.rows[i+1].cells[0].textContent, consumeNums: consumeNums})
           }
         }
         let inputData = confirmArr
-          .map((objName,consumeNum) =>
+          .map(({objName,consumeNum}) =>
             `${objName} 消耗${consumeNum}單位`
           )
           .join('\n')
@@ -161,9 +161,6 @@
         $('#confirmationModal').modal('hide')
         return undefined
       }
-      // 觸發
-      document.getElementById('confirmButton')
-        .addEventListener("click",getValues)
     </script>
   </head>
 
@@ -229,6 +226,11 @@
         <div class="rows">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌Cancel關閉</button>
             <button type="submit" class="btn btn-primary" id="confirmButton">⭕Confirm確認</button>
+            <script>
+              // 觸發
+              document.getElementById('confirmButton')
+                .addEventListener("click",getValues)
+            </script>
         </div>
       </div>
     </div>
@@ -236,4 +238,5 @@
   </div>   
   </body>
 </html>
+
 
