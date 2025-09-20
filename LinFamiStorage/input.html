@@ -192,7 +192,7 @@
         // upload
         fetch(scriptUrl, {
           method: 'POST',
-          mode: 'cors',
+          redirection: 'follow',
           headers: {
             'Content-Type': 'text/plain'
           },
@@ -470,6 +470,7 @@
 </body>
 
 </html>
+
 
 
 
