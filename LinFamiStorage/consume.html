@@ -157,8 +157,12 @@
           console.error('Fetch error:', error);
         });
 
-        // 關閉對話框
-        $('#confirmationModal').modal('hide')
+        // 關閉二次確認對話框
+        bootstrap.Modal
+          .getInstance(document
+            .getElementById('confirmationModal')
+          )
+        .hide()
         return undefined
       }
     </script>
@@ -238,6 +242,7 @@
   </div>   
   </body>
 </html>
+
 
 
 
