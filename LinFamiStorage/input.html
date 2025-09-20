@@ -89,9 +89,9 @@
           .innerText = inputData;
 
         // 顯示二次確認視窗
-        const modalElement = document.getElementById('confirmationModal');
-        const modalInstance = new bootstrap.Modal(modalElement);
-        modalInstance.show()
+        new bootstrap.Modal(document
+          .getElementById('confirmationModal'))
+        .show()
         return undefined
       }
 
@@ -224,7 +224,9 @@
         });
 
         // 關閉二次確認對話框
-        modalInstance.hide()
+        new bootstrap.Modal(document
+          .getElementById('confirmationModal'))
+        .hide()
         return undefined
       }
     </script>
@@ -451,6 +453,7 @@
 </body>
 
 </html>
+
 
 
 
