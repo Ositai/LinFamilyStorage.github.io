@@ -227,17 +227,17 @@
         });
 
         // 上傳完後清除
-          document.getElementById("myForm").reset()
-          document.getElementById("search-results").style.display = 'none'
-          document.getElementById('updateCheck').style.display = 'none'
-          
-          // 完成確認訊息
-          //alert(message)
-          
-          //重設購買日為當天日期     
-          const today = new Date()
-          const formattedDate = today.toISOString().slice(0, 10)
-          document.getElementById('buyDay').value = formattedDate
+        document.getElementById("myForm").reset()
+        document.getElementById("search-results").style.display = 'none'
+        document.getElementById('updateCheck').style.display = 'none'
+        
+        // 完成確認訊息
+        //alert(message)
+        
+        //重設購買日為當天日期     
+        const today = new Date()
+        const formattedDate = today.toISOString().slice(0, 10)
+        document.getElementById('buyDay').value = formattedDate
 
         // 關閉二次確認對話框
         bootstrap.Modal.getInstance(document
@@ -470,6 +470,7 @@
 </body>
 
 </html>
+
 
 
 
