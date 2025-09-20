@@ -225,6 +225,10 @@
         .catch(error => {
           console.error('Fetch error:', error);
         });
+        // 關閉二次確認對話框
+        bootstrap.Modal.getInstance(document
+          .getElementById('confirmationModal')
+        ).hide()
 
         // 上傳完後清除
         document.getElementById("myForm").reset()
@@ -238,11 +242,6 @@
         const today = new Date()
         const formattedDate = today.toISOString().slice(0, 10)
         document.getElementById('buyDay').value = formattedDate
-
-        // 關閉二次確認對話框
-        bootstrap.Modal.getInstance(document
-          .getElementById('confirmationModal')
-        ).hide()
 
         return undefined
       }
@@ -470,6 +469,7 @@
 </body>
 
 </html>
+
 
 
 
