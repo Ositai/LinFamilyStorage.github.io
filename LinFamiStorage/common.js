@@ -9,7 +9,10 @@ function linkToAdd(name){
 function formSender(formObject){  
   fetch(`${scripUrl}?action='search'&keyword=${formObject}`)
     .then(res => res.json())
-    .then(tableData => displayResult(tableData))
+    .then(tableData => {
+      displayResult(tableData)
+      console.log('get call back')
+    })
     .catch(err => console.log('傳輸關鍵字時錯誤:', err))     
   return undefined  
 }
@@ -23,3 +26,4 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
 
 // apps script 網址
 const scriptUrl = 'https://script.google.com/macros/s/AKfycbxlKyOkYISMfd95NMtxd-koIEyjldzzDV3wPd2OY5ztN_1h_RWOlnQCM1yVVLrmxFk2/exec'
+
