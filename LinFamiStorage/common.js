@@ -11,7 +11,7 @@ const scriptUrl = 'https://script.google.com/macros/s/AKfycbxlKyOkYISMfd95NMtxd-
 // 送出物品名比對既有庫存，有回應則呼叫displayResult產生表格
 function formSender(formObject){  
   let objName = formObject.value
-  fetch(`${scriptUrl}?action=search&keyword=${objName}`)
+  fetch(`${scriptUrl}?action='search'&keyword=${objName}`)
     .then(res => res.json())
     .then(tableData => {
       displayResult(tableData)
@@ -27,6 +27,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                     "<th scope='col'>有效期限</th>"
+
 
 
 
