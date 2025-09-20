@@ -105,8 +105,13 @@
           )
           .join('\n')
 
-        document.getElementById('modelContent').innerText = inputData;
-        $('#confirmationModal').modal('toggle')
+        document.getElementById('modelContent')
+          .innerText = inputData
+
+        // 顯示二次確認視窗
+        new bootstrap.Modal(document
+          .getElementById('confirmationModal'))
+        .show()
       }
 
       // 傳送資料
@@ -157,10 +162,8 @@
         });
 
         // 關閉二次確認對話框
-        bootstrap.Modal
-          .getInstance(document
-            .getElementById('confirmationModal')
-          )
+        new bootstrap.Modal(document
+          .getElementById('confirmationModal'))
         .hide()
         return undefined
       }
@@ -241,6 +244,7 @@
   </div>   
   </body>
 </html>
+
 
 
 
