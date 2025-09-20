@@ -12,11 +12,7 @@ const scriptUrl = 'https://script.google.com/macros/s/AKfycbxlKyOkYISMfd95NMtxd-
 function formSender(formObject){  
   let objName = formObject.value
   fetch(`${scriptUrl}?action=search&keyword=${objName}`)
-    .then(res => {
-      console.log('進行到res')
-      return res.json()
-      console.log('res.json完成')
-    })
+    .then(res => res.json())
     .then(tableData => {
       displayResult(tableData)
       console.log('get call back')
@@ -31,6 +27,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                     "<th scope='col'>有效期限</th>"
+
 
 
 
