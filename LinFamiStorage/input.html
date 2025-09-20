@@ -92,12 +92,6 @@
         return undefined
       }
 
-
-      
-      // 確認送出按下後
-      document.getElementById('confirmButton')
-        .addEventListener("click",getValues())
-
       /////// 自動比對功能 ////////
       // 顯示搜尋結果表格
       function displayResult(dataArray){
@@ -435,6 +429,11 @@
         <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">❌Cancel關閉</button>
             <button type="submit" class="btn btn-primary" id="confirmButton">⭕Confirm確認</button>
+            <script>
+              // 確認送出按下後
+              document.getElementById('confirmButton')
+                .addEventListener("click",getValues)
+            </script>
         </div>
       </div>
     </div>
@@ -450,3 +449,4 @@
 </body>
 
 </html>
+
