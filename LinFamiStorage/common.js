@@ -14,7 +14,7 @@ function formSender(formObject){
   fetch(`${scriptUrl}?action=search&keyword=${objName}`)
     .then(res => {
       console.log('進行到res')
-      res.json()
+      return res.json()
       console.log('res.json完成')
     })
     .then(tableData => {
@@ -31,6 +31,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                     "<th scope='col'>有效期限</th>"
+
 
 
 
