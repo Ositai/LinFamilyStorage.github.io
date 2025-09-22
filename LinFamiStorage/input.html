@@ -57,10 +57,12 @@
           leftDay = '無期限'
           expireDay = '無期限'
         } else if (!expireDay){  //只有填剩餘日期
-          expireDay.setDate(bDay.getDate() + leftDay)
+          expireDay = new Date(bDay)
+          expireDay.setDate(bDay.getDate() + Math.floor(leftDay))
      
         } else { //只有填過期日
           leftDay = (new Date(expireDay).getTime() - bDay.getTime())/1000/60/60/24
+          leftDay = Math.floor(leftDay)
         }
 
         if (!price){price=0}
@@ -455,6 +457,7 @@
 </body>
 
 </html>
+
 
 
 
