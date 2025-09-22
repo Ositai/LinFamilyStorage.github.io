@@ -16,7 +16,7 @@ function formSender(formObject){
   const script = document.createElement('script');
   script.src = url;
   document.body.appendChild(script);
-     // console.log('get call back')
+  console.log('get callback')
   return undefined  
 }
 
@@ -27,6 +27,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                     "<th scope='col'>有效期限</th>"
+
 
 
 
