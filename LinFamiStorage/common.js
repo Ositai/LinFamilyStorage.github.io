@@ -1,3 +1,4 @@
+/* 完全前端版本
 // 按鈕連結其他頁面   
 function linkToAdd(name){
   let linkUrl = `https://ositai.github.io/LinFamilyStorage.github.io/LinFamiStorage/${name}.html`
@@ -28,17 +29,29 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>目標庫存</th>"+
                     "<th scope='col'>有效期限</th>"
 
+*/
 
 
+// 按鈕連結其他頁面   
+function linkToAdd(name){
+  let linkUrl = '<?= getAppUrl() ?>?page='+name
+  window.top.location.href = linkUrl;
+  return undefined
+}      
 
+// 送出物品名比對既有庫存，有回應則呼叫displayResult產生表格
+function formSender(formObject){
+  let objName = formObject.value
+  
+  google.script.run
+    .withSuccessHandler(displayResult)
+    .textCarrier(objName);      
+  return undefined  
+}
 
-
-
-
-
-
-
-
-
-
-
+// 通用表格header
+const tableHeader = "<th scope='col'>項目名稱</th>"+
+                    "<th scope='col'>庫存位置</th>"+
+                    "<th scope='col'>庫存量</th>"+
+                    "<th scope='col'>目標庫存</th>"+
+                          "<th scope='col'>有效期限</th>"
