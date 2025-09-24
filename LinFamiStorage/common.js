@@ -34,8 +34,8 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
 
 // 按鈕連結其他頁面   
 function linkToAdd(name){
-  const AppUrl = '<?= getAppUrl() ?>'
-  let linkUrl = `${AppUrl}?page=${name}`
+
+  let linkUrl = `${window.APP_URL}?page=${name}`
   window.top.location.href = linkUrl;
   return undefined
 }      
@@ -57,5 +57,6 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                           "<th scope='col'>有效期限</th>"
+
 
 
