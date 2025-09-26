@@ -30,9 +30,10 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>有效期限</th>"
 
 */
+const scriptUrl = 'https://script.google.com/macros/s/AKfycbxlKyOkYISMfd95NMtxd-koIEyjldzzDV3wPd2OY5ztN_1h_RWOlnQCM1yVVLrmxFk2/exec'
 // 按鈕連結其他頁面   
 function linkToAdd(name){
-  let linkUrl = '<?= getAppUrl() ?>?page='+name
+  let linkUrl = `${scriptUrl}?page=${name}`
   window.top.location.href = linkUrl;
   return undefined
 }   
@@ -54,6 +55,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                           "<th scope='col'>有效期限</th>"
+
 
 
 
