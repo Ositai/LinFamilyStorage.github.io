@@ -30,7 +30,12 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>有效期限</th>"
 
 */
-   
+// 按鈕連結其他頁面   
+function linkToAdd(name){
+  let linkUrl = '<?= getAppUrl() ?>?page='+name
+  window.top.location.href = linkUrl;
+  return undefined
+}   
 
 // 送出物品名比對既有庫存，有回應則呼叫displayResult產生表格
 function formSender(formObject){
@@ -49,6 +54,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                           "<th scope='col'>有效期限</th>"
+
 
 
 
