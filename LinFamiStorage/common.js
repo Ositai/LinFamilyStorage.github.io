@@ -45,7 +45,7 @@ function formSender(formObject){
   } else if(formObject.tagName === "INPUT"){
     const objName = formObject.value
   }
-  console.log(objName)
+  console.log(`${formObject.tagName}:${objName}`)
   
   google.script.run
     .withSuccessHandler(displayResult)
@@ -59,6 +59,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                           "<th scope='col'>有效期限</th>"
+
 
 
 
