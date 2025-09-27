@@ -40,10 +40,11 @@ function linkToAdd(name){
 
 // 送出物品名比對既有庫存，有回應則呼叫displayResult產生表格
 function formSender(formObject){
+  let objName
   if(formObject.tagName === "FORM"){
-    const objName = formObject.querySelector('input[name="searchtext"]')
+    objName = formObject.querySelector('input[name="searchtext"]')?.value || ''
   } else if(formObject.tagName === "INPUT"){
-    const objName = formObject.value
+    objName = formObject.value
   }
   console.log(`${formObject.tagName}:${objName}`)
   
@@ -59,6 +60,7 @@ const tableHeader = "<th scope='col'>項目名稱</th>"+
                     "<th scope='col'>庫存量</th>"+
                     "<th scope='col'>目標庫存</th>"+
                           "<th scope='col'>有效期限</th>"
+
 
 
 
