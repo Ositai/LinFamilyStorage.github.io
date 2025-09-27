@@ -108,4 +108,5 @@ font-weight: 600;
 .table-custom td {
 border: 1px solid rgb(184, 220, 112);
 padding: 3px;
+color: #333333 !important;
 }
